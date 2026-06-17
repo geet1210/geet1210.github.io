@@ -755,7 +755,7 @@
   </div>
   <div class="hero-right">
     <iframe
-      src="https://www.rcsb.org/3d-view/6X88?preset=default"
+      src="https://molstar.org/viewer/?pdb=6x88&hide-controls=1"
       title="PDE6 GAFab structure 6X88"
       loading="lazy"
       allowfullscreen>
@@ -883,7 +883,7 @@
       <!-- Card 1 -->
       <div class="research-card fade-in">
         <div class="card-visual">
-          <iframe src="https://www.rcsb.org/3d-view/6X88?preset=default" loading="lazy"></iframe>
+          <iframe src="https://molstar.org/viewer/?pdb=6x88&hide-controls=1" loading="lazy"></iframe>
           <div class="card-visual-overlay"></div>
           <span class="card-visual-tag">PDB 6X88</span>
         </div>
@@ -978,20 +978,36 @@
 <!-- INTERACTIVE STRUCTURE VIEWER -->
 <div id="structure" class="viewer-section">
   <div class="viewer-inner">
-    <div class="viewer-frame">
-      <iframe
-        src="https://www.rcsb.org/3d-view/6X88?preset=default"
-        title="Interactive PDE6 structure viewer"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
+    <div class="viewer-frame" style="display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #0a1628 0%, #0d2b1f 50%, #1a0a28 100%); position:relative; overflow:hidden;">
+      <canvas id="heroNetworkCanvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+      <div style="position:relative; z-index:2; text-align:center; padding:2rem;">
+        <div style="font-family:monospace; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1.5rem;">Conformational landscape</div>
+        <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+          <div style="background:rgba(26,107,92,0.2); border:1px solid rgba(26,107,92,0.4); border-radius:10px; padding:1rem 1.4rem; text-align:center;">
+            <div style="font-size:11px; color:#6fcbb8; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">State I</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.6);">Apo</div>
+          </div>
+          <div style="background:rgba(88,166,255,0.15); border:1px solid rgba(88,166,255,0.35); border-radius:10px; padding:1rem 1.4rem; text-align:center;">
+            <div style="font-size:11px; color:#79b8ff; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">State II</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.6);">Ligand-bound</div>
+          </div>
+          <div style="background:rgba(196,92,42,0.2); border:1px solid rgba(196,92,42,0.4); border-radius:10px; padding:1rem 1.4rem; text-align:center;">
+            <div style="font-size:11px; color:#e8956a; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">State III</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.6);">Inhibited</div>
+          </div>
+          <div style="background:rgba(227,179,65,0.15); border:1px solid rgba(227,179,65,0.35); border-radius:10px; padding:1rem 1.4rem; text-align:center;">
+            <div style="font-size:11px; color:#e3b341; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">State IV</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.6);">Active</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="viewer-info">
-      <p class="eyebrow">Interactive · Rotate · Zoom</p>
+      <p class="eyebrow">The central question</p>
       <h2>A system worth understanding</h2>
       <p>Over the years the proteins have changed — GPCRs, GTPases, kinases, viral enzymes — but the questions have stayed the same: <strong>how does a conformational change reshape the internal communication of a protein, and where does that create opportunity?</strong></p>
-      <p>Right now that question lives in PDE6 — a photoreceptor enzyme whose dysfunction causes inherited blindness. The structure shown here (PDB 6X88) is the GAFab regulatory domain, solved by our group using X-ray crystallography at 3.2 Å. It is a tractable system for asking how regulatory signals travel through a protein. That question turns out to have no shortage of answers.</p>
-      <div class="pdb-id">PDB: 6X88 · 6MZB · X-ray · Cryo-EM</div>
+      <p>The same protein, four different states, four different stories. Mapping what changes between them — in structure, in dynamics, in the allosteric network — is where the interesting biology lives.</p>
+      <div class="pdb-id">XL-MS · MD · Integrative Modeling · Network Analysis</div>
     </div>
   </div>
 </div>
@@ -1317,6 +1333,25 @@
     drawNet();
   }
 
+
+  // Hero network canvas
+  const heroCanvas = document.getElementById("heroNetworkCanvas");
+  if (heroCanvas) {
+    const ctx2 = heroCanvas.getContext("2d");
+    function resizeHero() { heroCanvas.width = heroCanvas.offsetWidth; heroCanvas.height = heroCanvas.offsetHeight; }
+    resizeHero();
+    window.addEventListener("resize", resizeHero);
+    const nodes2 = Array.from({length: 40}, () => ({ x: Math.random() * heroCanvas.width, y: Math.random() * heroCanvas.height, vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3, r: Math.random()*3+1.5, community: Math.floor(Math.random()*4) }));
+    const colors2 = ["#1a6b5c","#58a6ff","#c45c2a","#e3b341"];
+    function drawHeroNet() {
+      ctx2.clearRect(0,0,heroCanvas.width,heroCanvas.height);
+      nodes2.forEach(n => { n.x += n.vx; n.y += n.vy; if(n.x<0||n.x>heroCanvas.width) n.vx*=-1; if(n.y<0||n.y>heroCanvas.height) n.vy*=-1; });
+      nodes2.forEach((a,i) => nodes2.forEach((b,j) => { if(j<=i) return; const d = Math.hypot(a.x-b.x,a.y-b.y); if(d<100) { ctx2.beginPath(); ctx2.moveTo(a.x,a.y); ctx2.lineTo(b.x,b.y); ctx2.strokeStyle = "rgba(255,255,255,"+(0.06*(1-d/100))+")"; ctx2.lineWidth = 0.5; ctx2.stroke(); } }));
+      nodes2.forEach(n => { ctx2.beginPath(); ctx2.arc(n.x,n.y,n.r,0,Math.PI*2); ctx2.fillStyle = colors2[n.community]; ctx2.globalAlpha = 0.7; ctx2.fill(); ctx2.globalAlpha = 1; });
+      requestAnimationFrame(drawHeroNet);
+    }
+    drawHeroNet();
+  }
 
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
