@@ -33,7 +33,7 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       background: rgba(245,244,240,0.92);
@@ -48,7 +48,10 @@
       font-size: 1.05rem;
       color: var(--ink);
       letter-spacing: -0.01em;
+      text-decoration: none;
+      cursor: pointer;
     }
+    .nav-name:hover { color: var(--accent); }
     .nav-links { display: flex; gap: 2.2rem; align-items: center; }
     .nav-links a {
       font-size: 13px;
@@ -68,7 +71,7 @@
     }
     .nav-cta:hover { background: var(--accent) !important; }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -113,10 +116,7 @@
       color: var(--ink);
       margin-bottom: 1.4rem;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
     .hero-sub {
       font-size: 1.05rem;
       color: var(--muted);
@@ -152,13 +152,12 @@
     }
     .stat-label { font-size: 12px; color: var(--muted); margin-top: 3px; letter-spacing: 0.02em; }
 
-    /* HERO RIGHT — Mol* viewer */
+    /* HERO RIGHT */
     .hero-right {
       background: var(--ink);
       position: relative;
       overflow: hidden;
     }
-    .hero-right molstar-plugin,
     .hero-right iframe {
       width: 100%; height: 100%;
       border: none;
@@ -178,7 +177,7 @@
     }
     .hero-right-label strong { color: #fff; font-weight: 500; display: block; }
 
-    /* ── MARQUEE STRIP ── */
+    /* MARQUEE */
     .marquee-wrap {
       background: var(--ink);
       color: rgba(255,255,255,0.5);
@@ -210,7 +209,7 @@
       to { transform: translateX(-50%); }
     }
 
-    /* ── SECTION BASE ── */
+    /* SECTION BASE */
     .section {
       max-width: 1100px;
       margin: 0 auto;
@@ -243,7 +242,7 @@
     }
     h2 em { font-style: italic; color: var(--accent); }
 
-    /* ── STORY SECTION ── */
+    /* STORY */
     .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -257,19 +256,9 @@
       margin-bottom: 1.2rem;
     }
     .story-text p strong { color: var(--ink); font-weight: 500; }
-    .story-visual {
-      position: relative;
-    }
-    /* Pipeline diagram */
-    .pipeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .pipeline { display: flex; flex-direction: column; gap: 0; }
     .pipeline-step {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      display: flex; align-items: center; gap: 1rem;
       padding: 1.1rem 1.4rem;
       background: var(--white);
       border: 1px solid var(--border);
@@ -295,18 +284,13 @@
     .step-text { flex: 1; }
     .step-name { font-weight: 500; font-size: 14px; color: var(--ink); }
     .step-desc { font-size: 12px; color: var(--muted); }
-    .step-arrow {
-      color: var(--accent);
-      font-size: 18px;
-      font-weight: 300;
-    }
     .pipeline-connector {
       width: 2px; height: 6px;
       background: var(--border);
       margin: 0 auto 6px;
     }
 
-    /* ── RESEARCH SECTION ── */
+    /* RESEARCH */
     .research-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -329,369 +313,140 @@
       overflow: hidden;
       background: var(--ink);
     }
-    .card-visual iframe {
-      width: 100%; height: 100%;
-      border: none;
-      pointer-events: none;
-    }
-    .card-visual-static {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .card-visual iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
     .card-visual-overlay {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(15,25,35,0.7) 0%, transparent 60%);
     }
     .card-visual-tag {
-      position: absolute;
-      top: 12px; right: 12px;
+      position: absolute; top: 12px; right: 12px;
       background: rgba(255,255,255,0.12);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 6px;
       padding: 4px 10px;
       color: #fff;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
     }
     .card-body { padding: 1.4rem; }
-    .card-body h3 {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-    .card-body p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
+    .card-body h3 { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.4; }
+    .card-body p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
     .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .ctag {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 3px 10px;
-      border-radius: 100px;
+      font-size: 11px; font-weight: 500;
+      color: var(--accent); background: var(--accent-light);
+      padding: 3px 10px; border-radius: 100px;
     }
 
-    /* ── STRUCTURE VIEWER FULL ── */
-    .viewer-section {
-      background: var(--ink);
-      padding: 0;
-      position: relative;
-    }
+    /* STRUCTURE VIEWER */
+    .viewer-section { background: var(--ink); padding: 0; position: relative; }
     .viewer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 400px;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 400px;
       min-height: 520px;
     }
-    .viewer-frame {
-      height: 520px;
-      position: relative;
-    }
-    .viewer-frame iframe {
-      width: 100%; height: 100%; border: none; display: block;
-    }
+    .viewer-frame { height: 520px; position: relative; }
+    .viewer-frame iframe { width: 100%; height: 100%; border: none; display: block; }
     .viewer-info {
       padding: 4rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: flex; flex-direction: column; justify-content: center;
       border-left: 1px solid rgba(255,255,255,0.08);
     }
     .viewer-info .eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
     }
-    .viewer-info h2 {
-      font-family: var(--serif);
-      color: #fff;
-      font-size: 1.9rem;
-      margin-bottom: 1rem;
-    }
-    .viewer-info p {
-      color: rgba(255,255,255,0.55);
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 1.4rem;
-    }
+    .viewer-info h2 { font-family: var(--serif); color: #fff; font-size: 1.9rem; margin-bottom: 1rem; }
+    .viewer-info p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.8; margin-bottom: 1.4rem; }
     .viewer-info p strong { color: rgba(255,255,255,0.85); font-weight: 500; }
     .pdb-id {
-      font-family: monospace;
-      font-size: 13px;
+      font-family: monospace; font-size: 13px;
       color: rgba(255,255,255,0.4);
       border: 1px solid rgba(255,255,255,0.12);
-      padding: 6px 14px;
-      border-radius: 6px;
-      width: fit-content;
+      padding: 6px 14px; border-radius: 6px; width: fit-content;
     }
 
-    /* ── IMPACT NUMBERS ── */
-    .impact-bg {
-      background: var(--accent);
-      padding: 5rem 3rem;
-    }
+    /* IMPACT */
+    .impact-bg { background: var(--accent); padding: 5rem 3rem; }
     .impact-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      text-align: center;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
     }
-    .impact-num {
-      font-family: var(--serif);
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-    }
-    .impact-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.7);
-      margin-top: 0.5rem;
-      font-weight: 400;
-    }
+    .impact-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 800; color: #fff; line-height: 1; }
+    .impact-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 0.5rem; font-weight: 400; }
 
-    /* ── SKILLS ── */
-    .skills-visual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
+    /* SKILLS */
+    .skills-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .skill-category { margin-bottom: 2rem; }
-    .skill-cat-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 1rem;
-    }
+    .skill-cat-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
     .skill-bars { display: flex; flex-direction: column; gap: 14px; }
-    .skill-bar-row { }
-    .skill-bar-label {
-      display: flex; justify-content: space-between;
-      font-size: 13px; color: var(--ink2); margin-bottom: 5px;
-    }
-    .skill-bar-track {
-      height: 5px;
-      background: var(--border);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 100px;
-      width: 0;
-      transition: width 1.2s ease;
-    }
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink2); margin-bottom: 5px; }
+    .skill-bar-track { height: 5px; background: var(--border); border-radius: 100px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: var(--accent); border-radius: 100px; width: 0; transition: width 1.2s ease; }
     .skill-bar-fill.accent2 { background: var(--accent2); }
-
-    .skills-right-visual {
-      position: sticky;
-      top: 80px;
-    }
-    .tool-cloud {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
+    .skills-right-visual { position: sticky; top: 80px; }
+    .tool-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
     .tool-pill {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink2);
-      background: var(--white);
+      font-size: 13px; font-weight: 500;
+      color: var(--ink2); background: var(--white);
       border: 1px solid var(--border);
-      padding: 7px 16px;
-      border-radius: 100px;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
+      padding: 7px 16px; border-radius: 100px;
+      transition: all 0.2s; text-decoration: none;
+      display: inline-block; cursor: pointer;
     }
-    .tool-pill:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
+    .tool-pill:hover { background: var(--accent); color: white; border-color: var(--accent); }
     .tool-pill.featured {
-      background: var(--ink);
-      color: white;
-      border-color: var(--ink);
-      font-size: 14px;
-      padding: 9px 20px;
+      background: var(--ink); color: white; border-color: var(--ink);
+      font-size: 14px; padding: 9px 20px;
     }
-    .tool-pill.featured:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
+    .tool-pill.featured:hover { background: var(--accent); border-color: var(--accent); }
 
-    /* ── PUBLICATIONS ── */
+    /* PUBLICATIONS */
     .pub-list { display: flex; flex-direction: column; gap: 1px; }
     .pub-item {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--white); border: 1px solid var(--border);
       padding: 1.6rem 1.8rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.4rem;
-      align-items: start;
-      transition: all 0.2s;
-      margin-bottom: 8px;
-      border-radius: 10px;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.4rem; align-items: start;
+      transition: all 0.2s; margin-bottom: 8px; border-radius: 10px;
     }
-    .pub-item:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 20px rgba(26,107,92,0.08);
-    }
-    .pub-year {
-      font-family: monospace;
-      font-size: 12px;
-      color: var(--muted);
-      padding-top: 3px;
-      min-width: 40px;
-    }
-    .pub-title {
-      font-weight: 500;
-      font-size: 15px;
-      color: var(--ink);
-      line-height: 1.5;
-      margin-bottom: 0.3rem;
-    }
-    .pub-journal {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .pub-item:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(26,107,92,0.08); }
+    .pub-year { font-family: monospace; font-size: 12px; color: var(--muted); padding-top: 3px; min-width: 40px; }
+    .pub-title { font-weight: 500; font-size: 15px; color: var(--ink); line-height: 1.5; margin-bottom: 0.3rem; }
+    .pub-journal { font-size: 13px; color: var(--muted); }
     .pub-journal em { font-style: italic; color: var(--accent2); }
 
-    /* ── CONTACT ── */
-    .contact-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+    /* CONTACT */
+    .contact-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .contact-left h2 { margin-bottom: 1rem; }
-    .contact-left p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
+    .contact-left p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
     .contact-links { display: flex; flex-direction: column; gap: 1rem; }
     .contact-link {
       display: flex; align-items: center; gap: 1rem;
-      text-decoration: none;
-      color: var(--ink);
-      font-weight: 500;
-      font-size: 15px;
-      padding: 1rem 1.2rem;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: all 0.2s;
+      text-decoration: none; color: var(--ink); font-weight: 500; font-size: 15px;
+      padding: 1rem 1.2rem; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px; transition: all 0.2s;
     }
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateX(4px);
-    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
     .contact-link-icon {
-      width: 36px; height: 36px;
-      background: var(--accent-light);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .contact-right {
-      background: var(--ink);
-      border-radius: 20px;
-      padding: 2.5rem;
-      color: white;
-    }
-    .contact-right h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .contact-right p {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    .available-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(26,107,92,0.3);
-      border: 1px solid rgba(26,107,92,0.5);
-      color: #6fcbb8;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-    }
-    .available-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: #6fcbb8;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    .interest-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .interest-list li {
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      padding-left: 1.2rem;
-      position: relative;
-    }
-    .interest-list li::before {
-      content: '→';
-      position: absolute; left: 0;
-      color: var(--accent);
+      width: 36px; height: 36px; background: var(--accent-light);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
     }
 
     /* FOOTER */
     footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.3);
-      text-align: center;
-      padding: 2rem;
-      font-size: 12px;
-      letter-spacing: 0.03em;
+      background: var(--ink); color: rgba(255,255,255,0.3);
+      text-align: center; padding: 2rem;
+      font-size: 12px; letter-spacing: 0.03em;
     }
 
     /* ANIMATIONS */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 380px; }
@@ -711,11 +466,12 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-name">Geet Madhukar</span>
+  <a href="#" class="nav-name">Geet Madhukar</a>
   <div class="nav-links">
     <a href="#story">About</a>
     <a href="#research">Research</a>
     <a href="#structure">Structure</a>
+    <a href="#ai-projects">AI Projects</a>
     <a href="#publications">Publications</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
@@ -730,7 +486,7 @@
       Postdoctoral researcher at UNH. Proteins are never still. Neither am I — I chase their conformational states across systems, from photoreceptor enzymes to viral targets, using MD simulation and integrative modeling to catch what crystallography misses in motion.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-dark" href="mailto:geetmadhukar@gmail.com">↗ Get in touch</a>
+      <a class="btn btn-dark" href="mailto:geetmadhukar@gmail.com">Get in touch</a>
       <a class="btn btn-ghost" href="https://github.com/geet1210" target="_blank">GitHub</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/geet-madhukar" target="_blank">LinkedIn</a>
     </div>
@@ -754,12 +510,7 @@
     </div>
   </div>
   <div class="hero-right">
-    <iframe
-      src="https://molstar.org/viewer/?pdb=6x88&hide-controls=1"
-      title="PDE6 GAFab structure 6X88"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
+    <iframe src="https://molstar.org/viewer/?pdb=6x88&hide-controls=1" title="PDE6 GAFab structure 6X88" loading="lazy" allowfullscreen></iframe>
     <div class="hero-right-label">
       <strong>PDE6 GAFab Regulatory Domain</strong>
       PDB 6X88 · Cone photoreceptor · 3.2 Å
@@ -780,10 +531,9 @@
     <span>QSAR</span><span class="dot">·</span>
     <span>Drug Discovery</span><span class="dot">·</span>
     <span>Network Analysis</span><span class="dot">·</span>
-    <span>Community Detection</span><span class="dot">·</span>
+    <span>Agentic AI</span><span class="dot">·</span>
     <span>PDE6</span><span class="dot">·</span>
     <span>Phototransduction</span><span class="dot">·</span>
-    <!-- duplicate for seamless loop -->
     <span>Molecular Dynamics</span><span class="dot">·</span>
     <span>AlphaFold2</span><span class="dot">·</span>
     <span>Integrative Modeling</span><span class="dot">·</span>
@@ -794,7 +544,7 @@
     <span>QSAR</span><span class="dot">·</span>
     <span>Drug Discovery</span><span class="dot">·</span>
     <span>Network Analysis</span><span class="dot">·</span>
-    <span>Community Detection</span><span class="dot">·</span>
+    <span>Agentic AI</span><span class="dot">·</span>
     <span>PDE6</span><span class="dot">·</span>
     <span>Phototransduction</span><span class="dot">·</span>
   </div>
@@ -880,7 +630,6 @@
     <p style="color:var(--muted); margin-bottom:3rem; font-size:1rem;">Different proteins, different diseases, same obsession — understanding what's happening when a protein changes shape.</p>
     <div class="research-grid">
 
-      <!-- Card 1 -->
       <div class="research-card fade-in">
         <div class="card-visual">
           <iframe src="https://molstar.org/viewer/?pdb=6x88&hide-controls=1" loading="lazy"></iframe>
@@ -889,37 +638,28 @@
         </div>
         <div class="card-body">
           <h3>PDE6 Holoenzyme — Four Conformational States</h3>
-          <p>The same enzyme, four different stories. Using XL-MS restraints to guide integrative modeling with AlphaFold2, IMP, and MODELLER, I resolved how cone PDE6 looks in its apo, cGMP-bound, Pγ-inhibited, and fully-active states — and what that means for how it actually works.</p>
+          <p>The same enzyme, four different stories. Using XL-MS restraints to guide integrative modeling with AlphaFold2, IMP, and MODELLER, I resolved how cone PDE6 looks in its apo, cGMP-bound, Py-inhibited, and fully-active states.</p>
           <div class="card-tags">
-            <span class="ctag">AlphaFold2</span>
-            <span class="ctag">IMP</span>
-            <span class="ctag">XL-MS</span>
-            <span class="ctag">GROMACS</span>
+            <span class="ctag">AlphaFold2</span><span class="ctag">IMP</span><span class="ctag">XL-MS</span><span class="ctag">GROMACS</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="research-card fade-in">
         <div class="card-visual" style="background: linear-gradient(135deg, #0a1628 0%, #0d2b1f 100%); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-          <!-- Animated network visualization -->
           <canvas id="networkCanvas" width="400" height="200" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
           <div class="card-visual-overlay"></div>
           <span class="card-visual-tag">Cone PDE6 · 6X88</span>
         </div>
         <div class="card-body">
           <h3>Allosteric Networks & Druggable Nodes</h3>
-          <p>Once you have the conformational states, the next question is obvious: what changed in the wiring? Using DCCM, generalized mutual information, and community detection (Louvain/Newman), I map how the internal communication network of cone PDE6 reorganizes — and which nodes become druggable.</p>
+          <p>Using DCCM, generalized mutual information, and community detection (Louvain/Newman), I map how the internal communication network of cone PDE6 reorganizes — and which nodes become druggable.</p>
           <div class="card-tags">
-            <span class="ctag">DCCM</span>
-            <span class="ctag">GMI</span>
-            <span class="ctag">Louvain</span>
-            <span class="ctag">NetworkX</span>
+            <span class="ctag">DCCM</span><span class="ctag">GMI</span><span class="ctag">Louvain</span><span class="ctag">NetworkX</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="research-card fade-in">
         <div class="card-visual" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; position:relative;">
           <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding:1.4rem;">
@@ -935,17 +675,13 @@
         </div>
         <div class="card-body">
           <h3>Structure-Based Drug Discovery — HNSCC</h3>
-          <p>Four oncogenic targets in head and neck cancer, one question: can we find something that binds? Virtual screening, docking, and all-atom MD to identify and validate small-molecule hits against RPS6KB2, NRF2, RAC1, and PI3K — ranked by binding free energy, not wishful thinking.</p>
+          <p>Four oncogenic targets in head and neck cancer. Virtual screening, docking, and all-atom MD to identify and validate small-molecule hits against RPS6KB2, NRF2, RAC1, and PI3K — ranked by binding free energy.</p>
           <div class="card-tags">
-            <span class="ctag">AutoDock</span>
-            <span class="ctag">GROMACS</span>
-            <span class="ctag">HNSCC</span>
-            <span class="ctag">Drug Discovery</span>
+            <span class="ctag">AutoDock</span><span class="ctag">GROMACS</span><span class="ctag">HNSCC</span><span class="ctag">Drug Discovery</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="research-card fade-in">
         <div class="card-visual" style="background: linear-gradient(135deg, #0f2318 0%, #1a1a2e 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; position:relative;">
           <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding:1.4rem;">
@@ -961,12 +697,9 @@
         </div>
         <div class="card-body">
           <h3>ML-Driven QSAR — Oncology & Infectious Disease</h3>
-          <p>When you have thousands of compounds and need to know which ones are worth testing, brute force doesn't scale. Consensus QSAR models — RDKit fingerprints, XGBoost, random forests — to rank inhibitor activity across EZH2, HIV-1, and antimalarial targets, with network-based SAR clustering to make sense of the chemical space.</p>
+          <p>Consensus QSAR models — RDKit fingerprints, XGBoost, random forests — to rank inhibitor activity across EZH2, HIV-1, and antimalarial targets, with network-based SAR clustering.</p>
           <div class="card-tags">
-            <span class="ctag">QSAR</span>
-            <span class="ctag">RDKit</span>
-            <span class="ctag">XGBoost</span>
-            <span class="ctag">NetworkX</span>
+            <span class="ctag">QSAR</span><span class="ctag">RDKit</span><span class="ctag">XGBoost</span><span class="ctag">NetworkX</span>
           </div>
         </div>
       </div>
@@ -1031,10 +764,6 @@
       <div class="impact-num">10+</div>
       <div class="impact-label">Years MD simulation</div>
     </div>
-    <div class="fade-in">
-      <div class="impact-num">5</div>
-      <div class="impact-label">Drug targets validated</div>
-    </div>
   </div>
 </div>
 
@@ -1089,7 +818,7 @@
           <a class="tool-pill featured" href="https://alphafold.ebi.ac.uk" target="_blank">AlphaFold2</a>
           <a class="tool-pill" href="https://integrativemodeling.org" target="_blank">IMP</a>
           <a class="tool-pill" href="https://salilab.org/modeller" target="_blank">MODELLER</a>
-          <a class="tool-pill featured" href="https://github.com/geet1210" target="_blank">Python ↗ GitHub</a>
+          <a class="tool-pill featured" href="https://github.com/geet1210" target="_blank">Python / GitHub</a>
           <a class="tool-pill" href="https://www.mdanalysis.org" target="_blank">MDAnalysis</a>
           <a class="tool-pill" href="https://www.rdkit.org" target="_blank">RDKit</a>
           <a class="tool-pill" href="https://xgboost.readthedocs.io" target="_blank">XGBoost</a>
@@ -1097,14 +826,13 @@
           <a class="tool-pill" href="https://vina.scripps.edu" target="_blank">AutoDock Vina</a>
           <a class="tool-pill" href="https://www.bonvinlab.org/software/haddock2.4" target="_blank">HADDOCK</a>
           <a class="tool-pill" href="https://pymol.org" target="_blank">PyMOL</a>
-          <a class="tool-pill" href="https://github.com/KULL-Centre/CALVADOS" target="_blank">CALVADOS</a>
           <a class="tool-pill" href="https://scikit-learn.org" target="_blank">scikit-learn</a>
           <a class="tool-pill" href="https://numpy.org" target="_blank">NumPy</a>
           <a class="tool-pill" href="https://pandas.pydata.org" target="_blank">pandas</a>
           <a class="tool-pill" href="https://ambermd.org" target="_blank">AMBER</a>
           <a class="tool-pill" href="https://www.ks.uiuc.edu/Research/vmd" target="_blank">VMD</a>
-          <a class="tool-pill" href="https://www.ks.uiuc.edu/Research/namd" target="_blank">NAMD</a>
-          <a class="tool-pill" href="https://github.com/geet1210/Integrative-Structural-Modeling" target="_blank">My Pipeline ↗</a>
+          <a class="tool-pill" href="https://github.com/geet1210/ai-task-agent" target="_blank">PubMed AI Agent</a>
+          <a class="tool-pill" href="https://github.com/geet1210/Integrative-Structural-Modeling" target="_blank">My Pipeline</a>
         </div>
         <div style="margin-top:2rem; padding:1.4rem; background:var(--white); border:1px solid var(--border); border-radius:12px;">
           <div style="font-size:12px; font-weight:600; color:var(--accent2); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem;">Embedded in an experimental lab</div>
@@ -1112,6 +840,57 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- AGENTIC AI PROJECTS -->
+<div id="ai-projects" style="background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-label" style="color:#6fcbb8;">Agentic AI</span>
+      <div class="section-rule" style="background:rgba(255,255,255,0.1);"></div>
+    </div>
+    <h2 style="color:#fff; margin-bottom:0.6rem;">Building AI that <em style="color:#6fcbb8;">reasons</em></h2>
+    <p style="color:rgba(255,255,255,0.45); margin-bottom:3rem; font-size:1rem;">Applying agentic AI patterns to scientific literature — autonomous agents that search, analyze, and summarize research.</p>
+
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(26,107,92,0.5); border-radius:16px; overflow:hidden; max-width:760px;">
+      <!-- Card header -->
+      <div style="background: linear-gradient(135deg, #0a1f14 0%, #0a1628 100%); padding:2rem 2.5rem; border-bottom: 1px solid rgba(26,107,92,0.3);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.2rem;">
+          <div style="background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:100px; padding:4px 14px; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#6fcbb8;">Level 1 Project</div>
+          <div style="background:rgba(227,179,65,0.15); border:1px solid rgba(227,179,65,0.3); border-radius:100px; padding:4px 14px; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#e3b341;">ReAct Loop</div>
+        </div>
+        <h3 style="font-family:var(--serif); font-size:1.8rem; color:#fff; font-weight:600; line-height:1.2; margin-bottom:0.8rem;">PubMed Research Agent</h3>
+        <p style="color:rgba(255,255,255,0.6); font-size:15px; line-height:1.8; max-width:580px;">A CLI-based agent that autonomously searches PubMed for any topic, retrieves publication counts by year, and summarizes key findings using Google Gemini — demonstrating tool use, autonomous reasoning, and the foundational ReAct pattern behind all modern AI agents.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:1.4rem;">
+          <span style="background:rgba(26,107,92,0.3); border:1px solid rgba(26,107,92,0.5); color:#6fcbb8; font-size:11px; font-weight:500; padding:5px 14px; border-radius:100px;">Python 3.12</span>
+          <span style="background:rgba(26,107,92,0.3); border:1px solid rgba(26,107,92,0.5); color:#6fcbb8; font-size:11px; font-weight:500; padding:5px 14px; border-radius:100px;">Biopython</span>
+          <span style="background:rgba(26,107,92,0.3); border:1px solid rgba(26,107,92,0.5); color:#6fcbb8; font-size:11px; font-weight:500; padding:5px 14px; border-radius:100px;">Google Gemini</span>
+          <span style="background:rgba(26,107,92,0.3); border:1px solid rgba(26,107,92,0.5); color:#6fcbb8; font-size:11px; font-weight:500; padding:5px 14px; border-radius:100px;">NCBI Entrez API</span>
+          <span style="background:rgba(88,166,255,0.15); border:1px solid rgba(88,166,255,0.3); color:#79b8ff; font-size:11px; font-weight:500; padding:5px 14px; border-radius:100px;">Agentic AI</span>
+        </div>
+      </div>
+      <!-- Card footer -->
+      <div style="padding:1.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div style="display:flex; gap:2.5rem;">
+          <div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Searches</div>
+            <div style="font-size:15px; font-weight:500; color:#fff;">PubMed / NCBI</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Summarizes with</div>
+            <div style="font-size:15px; font-weight:500; color:#fff;">Google Gemini</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Pattern</div>
+            <div style="font-size:15px; font-weight:500; color:#fff;">ReAct Loop</div>
+          </div>
+        </div>
+        <a href="https://github.com/geet1210/ai-task-agent" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#1a6b5c; color:#fff; font-size:13px; font-weight:500; padding:11px 22px; border-radius:100px; text-decoration:none; white-space:nowrap; transition: background 0.2s;" onmouseover="this.style.background='#145a4d'" onmouseout="this.style.background='#1a6b5c'">View on GitHub &rarr;</a>
+      </div>
+    </div>
+
+    <p style="color:rgba(255,255,255,0.25); font-size:13px; margin-top:1.5rem; font-style:italic;">More agentic AI projects coming — multi-tool research agents, autonomous coding agents, and multi-agent pipelines.</p>
   </div>
 </div>
 
@@ -1124,18 +903,17 @@
     </div>
     <h2 style="margin-bottom:2.5rem;">Selected work</h2>
     <div class="pub-list">
-      <!-- In preparation -->
       <div class="pub-item">
         <div class="pub-year">Prep</div>
         <div>
-          <div class="pub-title">The N-terminal motif of PDE6 promotes catalytic subunit dimerization and contributes to allosteric regulation by cGMP and the inhibitory γ-subunit</div>
+          <div class="pub-title">The N-terminal motif of PDE6 promotes catalytic subunit dimerization and contributes to allosteric regulation by cGMP and the inhibitory gamma-subunit</div>
           <div class="pub-journal">Madhukar G., Wang X., Gupta R., Tyler M.E., Cote R.H. · <em>In preparation</em></div>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-year">Prep</div>
         <div>
-          <div class="pub-title">Molecular architecture of the rod photoreceptor RGS9-1/Gβ5L-R9AP inactivation complex</div>
+          <div class="pub-title">Molecular architecture of the rod photoreceptor RGS9-1/Gb5L-R9AP inactivation complex</div>
           <div class="pub-journal">Hagearty H.E., Madhukar G., Wang X., Cote R.H. · <em>In preparation</em></div>
         </div>
       </div>
@@ -1146,7 +924,6 @@
           <div class="pub-journal">Wang X., Madhukar G., Cote R.H. · <em>In preparation</em></div>
         </div>
       </div>
-      <!-- Published -->
       <div class="pub-item">
         <div class="pub-year">2025</div>
         <div>
@@ -1157,8 +934,8 @@
       <div class="pub-item">
         <div class="pub-year">2025</div>
         <div>
-          <div class="pub-title">Network-based clustering and statistical evaluation to elucidate structure–activity relationships of EZH2 inhibitors</div>
-          <div class="pub-journal">Danishuddin M., Haque M.A., Madhukar G., et al. · <em>SAR QSAR Environmental Research</em>, 36(9), 827–851</div>
+          <div class="pub-title">Network-based clustering and statistical evaluation to elucidate structure-activity relationships of EZH2 inhibitors</div>
+          <div class="pub-journal">Danishuddin M., Haque M.A., Madhukar G., et al. · <em>SAR QSAR Environmental Research</em>, 36(9), 827-851</div>
         </div>
       </div>
       <div class="pub-item">
@@ -1172,7 +949,7 @@
         <div class="pub-year">2024</div>
         <div>
           <div class="pub-title">Potential inhibitors of RPS6KB2 and NRF2 in Head and Neck Squamous Cell Carcinoma</div>
-          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Journal of Biomolecular Structure &amp; Dynamics</em>, 42(4), 1875–1900</div>
+          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Journal of Biomolecular Structure &amp; Dynamics</em>, 42(4), 1875-1900</div>
         </div>
       </div>
       <div class="pub-item">
@@ -1193,14 +970,14 @@
         <div class="pub-year">2022</div>
         <div>
           <div class="pub-title">In silico prediction of potential inhibitors against PI3K catalytic subunit alpha in HNSCC</div>
-          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Journal of Biomolecular Structure &amp; Dynamics</em>, 40(10), 4697–4712</div>
+          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Journal of Biomolecular Structure &amp; Dynamics</em>, 40(10), 4697-4712</div>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-year">2021</div>
         <div>
           <div class="pub-title">Current and future therapeutic targets: a review on treating Head and Neck Squamous Cell Carcinoma</div>
-          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Current Cancer Drug Targets</em>, 21(5), 386–400</div>
+          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Current Cancer Drug Targets</em>, 21(5), 386-400</div>
         </div>
       </div>
       <div class="pub-item" style="border-left: 3px solid var(--accent2); margin-top:1.5rem;">
@@ -1208,7 +985,7 @@
         <div>
           <div class="pub-title" style="font-size:12px; color:var(--accent2); letter-spacing:0.06em; text-transform:uppercase; font-weight:600; margin-bottom:0.5rem;">Book Chapters</div>
           <div class="pub-title">Unveiling the landscape of cancer: from therapeutic targets to their inhibition</div>
-          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Recent Trends in Diabetes and Cancer Research and Its Management</em>, 1(1), 72–131</div>
+          <div class="pub-journal">Madhukar G., Subbarao N. · <em>Recent Trends in Diabetes and Cancer Research and Its Management</em>, 1(1), 72-131</div>
         </div>
       </div>
       <div class="pub-item">
@@ -1222,7 +999,7 @@
         <div class="pub-year">—</div>
         <div>
           <div class="pub-title" style="color:var(--accent);">View full list on Google Scholar</div>
-          <div class="pub-journal"><a href="https://scholar.google.com/citations?user=Rw9-74EAAAAJ&hl=en" style="color:var(--accent); text-decoration:none; font-size:13px;">scholar.google.com →</a></div>
+          <div class="pub-journal"><a href="https://scholar.google.com/citations?user=Rw9-74EAAAAJ&hl=en" style="color:var(--accent); text-decoration:none; font-size:13px;">scholar.google.com &rarr;</a></div>
         </div>
       </div>
     </div>
@@ -1249,43 +1026,57 @@
             <span class="contact-link-icon">⌥</span>
             github.com/geet1210
           </a>
-          <a class="contact-link" href="https://linkedin.com" target="_blank">
+          <a class="contact-link" href="https://www.linkedin.com/in/geet-madhukar" target="_blank">
             <span class="contact-link-icon">in</span>
             LinkedIn — Geet Madhukar
           </a>
-          <a class="contact-link" href="https://scholar.google.com/citations?user=Rw9-74EAAAAJ&hl=en" target="_blank">
-            <span class="contact-link-icon">✦</span>
-            Google Scholar
-          </a>
         </div>
       </div>
-      <div class="contact-right">
-        <div class="available-badge">Available immediately</div>
-        <h3>What I'm looking for</h3>
-        <p>A place where the biological questions are genuinely interesting and computation gets to be part of the answer from the start.</p>
-        <ul class="interest-list">
-          <li>Integrative structural biology labs</li>
-          <li>Computational drug discovery teams</li>
-          <li>Cryo-EM groups wanting to add dynamics</li>
-          <li>Viral protein structure & allostery</li>
-          <li>AI/ML applied to structural biology</li>
+
+      <!-- WHAT I'M LOOKING FOR — redesigned -->
+      <div style="background: linear-gradient(135deg, #0a1f14 0%, #0a1628 100%); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(26,107,92,0.5); position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; right:0; width:200px; height:200px; background:radial-gradient(circle, rgba(26,107,92,0.15) 0%, transparent 70%); pointer-events:none;"></div>
+        <div class="available-badge" style="background:rgba(26,107,92,0.3); border:1px solid rgba(26,107,92,0.6);">Available immediately</div>
+        <h3 style="font-family:var(--serif); font-size:1.9rem; font-weight:700; color:#fff; line-height:1.2; margin-bottom:1rem;">What I'm<br>looking for</h3>
+        <p style="color:rgba(255,255,255,0.65); font-size:15px; line-height:1.8; margin-bottom:1.8rem;">A lab where the biological questions are genuinely hard and computation is part of the answer from day one — not an afterthought.</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:2rem;">
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:#fff;">
+            <span style="width:28px; height:28px; background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#6fcbb8; font-size:14px; flex-shrink:0;">→</span>
+            Integrative structural biology labs
+          </li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:#fff;">
+            <span style="width:28px; height:28px; background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#6fcbb8; font-size:14px; flex-shrink:0;">→</span>
+            Computational drug discovery teams
+          </li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:#fff;">
+            <span style="width:28px; height:28px; background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#6fcbb8; font-size:14px; flex-shrink:0;">→</span>
+            Cryo-EM groups wanting to add dynamics
+          </li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:#fff;">
+            <span style="width:28px; height:28px; background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#6fcbb8; font-size:14px; flex-shrink:0;">→</span>
+            Viral protein structure &amp; allostery
+          </li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:#fff;">
+            <span style="width:28px; height:28px; background:rgba(26,107,92,0.4); border:1px solid rgba(26,107,92,0.6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#6fcbb8; font-size:14px; flex-shrink:0;">→</span>
+            AI/ML applied to structural biology
+          </li>
         </ul>
-        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08);">
-          <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:0.7rem;">Open to collaborations</div>
-          <p style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.7; margin-bottom:1rem;">If your lab generates structural or proteomics data and the MD simulation keeps getting pushed to "someday" — I enjoy that kind of problem. Project-based work in dynamics, integrative modeling, and allosteric analysis.</p>
-          <a href="mailto:geetmadhukar@gmail.com" style="display:inline-flex; align-items:center; gap:6px; background:rgba(26,107,92,0.25); border:1px solid rgba(26,107,92,0.4); color:#6fcbb8; font-size:12px; font-weight:500; padding:8px 16px; border-radius:100px; text-decoration:none;">↗ Discuss a project</a>
-        </div>
+        <a href="mailto:geetmadhukar@gmail.com" style="display:inline-flex; align-items:center; gap:8px; background:#1a6b5c; color:#fff; font-size:13px; font-weight:600; padding:12px 22px; border-radius:100px; text-decoration:none; letter-spacing:0.02em;">Discuss a project &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
   geet1210.github.io &nbsp;·&nbsp; Geet Madhukar, PhD &nbsp;·&nbsp; University of New Hampshire
 </footer>
 
 <script>
   // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-      }
-    });
+    entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
@@ -1294,11 +1085,10 @@
   if (canvas) {
     const ctx = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
-    const nodes = Array.from({length: 28}, (_, i) => ({
+    const nodes = Array.from({length: 28}, () => ({
       x: Math.random() * W, y: Math.random() * H,
       vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
-      r: Math.random()*3+2,
-      community: Math.floor(Math.random()*4)
+      r: Math.random()*3+2, community: Math.floor(Math.random()*4)
     }));
     const colors = ['#1a6b5c','#c45c2a','#58a6ff','#e3b341'];
     function drawNet() {
@@ -1312,27 +1102,21 @@
         if(j<=i) return;
         const d = Math.hypot(a.x-b.x,a.y-b.y);
         if(d<90) {
-          ctx.beginPath();
-          ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-          const same = a.community===b.community;
-          ctx.strokeStyle = same
-            ? colors[a.community].replace(')',`,${0.6*(1-d/90)})`).replace('rgb','rgba').replace('#','rgba(').replace(/([0-9a-f]{2})/gi,h=>parseInt(h,16)+',').slice(0,-1)+')'
-            : `rgba(255,255,255,${0.08*(1-d/90)})`;
-          ctx.lineWidth = same ? 1.2 : 0.5;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle = a.community===b.community
+            ? colors[a.community]+'88' : 'rgba(255,255,255,0.05)';
+          ctx.lineWidth = a.community===b.community ? 1.2 : 0.5;
           ctx.stroke();
         }
       }));
       nodes.forEach(n => {
-        ctx.beginPath();
-        ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-        ctx.fillStyle = colors[n.community];
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+        ctx.fillStyle = colors[n.community]; ctx.fill();
       });
       requestAnimationFrame(drawNet);
     }
     drawNet();
   }
-
 
   // Hero network canvas
   const heroCanvas = document.getElementById("heroNetworkCanvas");
@@ -1341,18 +1125,38 @@
     function resizeHero() { heroCanvas.width = heroCanvas.offsetWidth; heroCanvas.height = heroCanvas.offsetHeight; }
     resizeHero();
     window.addEventListener("resize", resizeHero);
-    const nodes2 = Array.from({length: 40}, () => ({ x: Math.random() * heroCanvas.width, y: Math.random() * heroCanvas.height, vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3, r: Math.random()*3+1.5, community: Math.floor(Math.random()*4) }));
+    const nodes2 = Array.from({length: 40}, () => ({
+      x: Math.random() * heroCanvas.width, y: Math.random() * heroCanvas.height,
+      vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+      r: Math.random()*3+1.5, community: Math.floor(Math.random()*4)
+    }));
     const colors2 = ["#1a6b5c","#58a6ff","#c45c2a","#e3b341"];
     function drawHeroNet() {
       ctx2.clearRect(0,0,heroCanvas.width,heroCanvas.height);
-      nodes2.forEach(n => { n.x += n.vx; n.y += n.vy; if(n.x<0||n.x>heroCanvas.width) n.vx*=-1; if(n.y<0||n.y>heroCanvas.height) n.vy*=-1; });
-      nodes2.forEach((a,i) => nodes2.forEach((b,j) => { if(j<=i) return; const d = Math.hypot(a.x-b.x,a.y-b.y); if(d<100) { ctx2.beginPath(); ctx2.moveTo(a.x,a.y); ctx2.lineTo(b.x,b.y); ctx2.strokeStyle = "rgba(255,255,255,"+(0.06*(1-d/100))+")"; ctx2.lineWidth = 0.5; ctx2.stroke(); } }));
-      nodes2.forEach(n => { ctx2.beginPath(); ctx2.arc(n.x,n.y,n.r,0,Math.PI*2); ctx2.fillStyle = colors2[n.community]; ctx2.globalAlpha = 0.7; ctx2.fill(); ctx2.globalAlpha = 1; });
+      nodes2.forEach(n => {
+        n.x += n.vx; n.y += n.vy;
+        if(n.x<0||n.x>heroCanvas.width) n.vx*=-1;
+        if(n.y<0||n.y>heroCanvas.height) n.vy*=-1;
+      });
+      nodes2.forEach((a,i) => nodes2.forEach((b,j) => {
+        if(j<=i) return;
+        const d = Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<100) {
+          ctx2.beginPath(); ctx2.moveTo(a.x,a.y); ctx2.lineTo(b.x,b.y);
+          ctx2.strokeStyle = "rgba(255,255,255,"+(0.06*(1-d/100))+")";
+          ctx2.lineWidth = 0.5; ctx2.stroke();
+        }
+      }));
+      nodes2.forEach(n => {
+        ctx2.beginPath(); ctx2.arc(n.x,n.y,n.r,0,Math.PI*2);
+        ctx2.fillStyle = colors2[n.community]; ctx2.globalAlpha = 0.7; ctx2.fill(); ctx2.globalAlpha = 1;
+      });
       requestAnimationFrame(drawHeroNet);
     }
     drawHeroNet();
   }
 
+  // Skill bars animation
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
